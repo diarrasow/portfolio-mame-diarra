@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Mame Diarra Bousso Sow</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Mame Diarra Bousso Sow</div>
+    <div class="burger">&#9776;</div>
+  </nav>
+
+  <header id="header-diapo" style="
+  height: 1000px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+">
+  <h1 style="font-size: 36px; margin: 0;">Bienvenue !</h1>
+  <p style="font-size: 18px;">Je suis Mame Diarra Bousso Sow, étudiante en développement web et mobile.</p>
+</header>
+
+  <section id="about" class="section fade-in">
+    <h2>À propos</h2>
+    <p>Je suis passionnée par la création de sites web modernes, interactifs et accessibles à tous.</p>
+  </section>
+
+  <section id="skills" class="section fade-in">
+    <h2>Compétences</h2>
+    <div class="skills">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>Java</span>
+      <span>Python</span>
+      <span>CMS</span>
+      <span>ULM</span>
+    <span>ect..</span>
+    </div>
+  </section>
+
+  <section id="projects" class="section fade-in">
+    <h2>Mes projets</h2>
+    <div class="cards">
+      <div class="card">
+        <section id="projets">
+          <h2>Mes Projets</h2>
+          
+          <div class="projet">
+            <h3>projet python avec setup</h3>
+            <p>c'est une application avec interface graphique qui permet de gerer des contacts Telephoniques
+            </p>
+            <a href="projet python.zip" download>Télécharger le projet (.zip)</a>
+          </div>
+        
+          <div class="projet">
+            <h3>projet html</h3>
+            <p>ici on a de petite travail faite a partir de html et CSS des cite et des formulaire.</p>
+            <a href="html.zip" download>Télécharger le projet (.zip)</a>
+          </div>
+        </section>
+        <h3>projet en php</h3>
+        <p>petite travail de tableau en php.</p>
+        <a href="PHP.zip" download>Télécharger le projet (.zip)</a>
+      </div>
+      <div class="card">
+        <h3>App Java</h3>
+        <p>une application avec la systeme de gestion bancaire en java est en coure de construiction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section fade-in">
+    <h2>Contact</h2>
+    <p>Email : <a href="mailto:exemple@email.com">diarrasowanta@gmail.com</a></p>
+    <p>Telephone : <a href="#">778346432</a></p>
+    <a href="cv mame diarra.zip" download style="display: inline-block; padding: 10px 20px; background-color: #0072ff; color: white; text-decoration: none; border-radius: 5px;">
+      Télécharger le CV de Mame Diarra Bousso Sow
+    </a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mame Diarra Bousso Sow</p>
+  </footer>
+
+  <script>
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-active');
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+  <script>
+    const header = document.getElementById('header-diapo');
+    const images = [
+      'diar.jpg',
+      'diarra.jpg'
+    ];
+    let index = 0;
+  
+    function changeBackground() {
+      header.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+  
+    changeBackground(); // Affiche la première image
+    setInterval(changeBackground, 4000); // Change toutes les 4 secondes
+  </script>
+  
+</body>
+</html>
